@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prabhat Singh | Software Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a192f;
+            color: #ccd6f6;
+        }
+        .glassmorphism {
+            background: rgba(13, 38, 76, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-section {
+            background-image: url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?q=80&w=2070&auto-format&fit=crop');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        .highlight-text {
+            color: #64ffda;
+        }
+        /* Utility classes for highlight color */
+        .text-highlight-text { color: #64ffda; }
+        .bg-highlight-text { background-color: #64ffda; }
+        .border-highlight-text { border-color: #64ffda; }
+
+        .section-heading::after {
+            content: '';
+            display: block;
+            flex-grow: 1; /* Was width: 300px */
+            height: 1px;
+            margin-left: 1rem;
+            background-color: #233554;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #64ffda;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 glassmorphism" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold highlight-text">PS</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="hover:text-highlight-text transition-colors">About</a>
+                <a href="#experience" class="hover:text-highlight-text transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-highlight-text transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-highlight-text transition-colors">Contact</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
+             <a href="#about" class="block py-2 hover:text-highlight-text transition-colors">About</a>
+             <a href="#experience" class="block py-2 hover:text-highlight-text transition-colors">Experience</a>
+             <a href="#projects" class="block py-2 hover:text-highlight-text transition-colors">Projects</a>
+             <a href="#contact" class="block py-2 hover:text-highlight-text transition-colors">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 md:px-12 lg:px-24">
+
+        <!-- Hero Section -->
+        <section class="hero-section -mx-6 md:-mx-12 lg:-mx-24 min-h-screen flex items-center justify-center text-center">
+            <div class="bg-black bg-opacity-60 p-10 rounded-lg">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQEDyq0BebqrFg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1664877098090?e=1759363200&v=beta&t=7rj5FstMzRzpy13NiVLl9E_32GSgEUKeuBR47epOxkE" alt="Prabhat Singh" class="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-highlight-text shadow-lg">
+                <p class="text-lg highlight-text mb-2">Hi, my name is</p>
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-100 mb-4">Prabhat Singh.</h1>
+                <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-400 mb-6">I build intelligent solutions for the web.</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-300">
+                    I'm a software developer specializing in creating robust, full-stack applications and intelligent systems. I turn complex problems into elegant, user-friendly solutions.
+                </p>
+                <div class="mt-8">
+                    <a href="mailto:prabhatsingh8766@gmail.com?subject=Inquiry%20from%20Portfolio&body=Hi%20Prabhat,%0D%0A%0D%0AI%20saw%20your%20portfolio%20and%20wanted%20to%20reach%20out." class="bg-transparent border border-highlight-text text-highlight-text font-medium py-3 px-8 rounded hover:bg-highlight-text hover:bg-opacity-10 transition-all duration-300">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24">
+            <h2 class="section-heading text-3xl font-bold flex items-center mb-12"><span class="highlight-text mr-4">01.</span>About Me</h2>
+            <div class="grid md:grid-cols-5 gap-12 items-center">
+                <div class="md:col-span-3 text-lg space-y-4 text-gray-300">
+                    <p>
+                        Hello! I'm Prabhat, a passionate software developer based in New Delhi. My journey into tech began with a curiosity for how things work, which led me to pursue a degree in Electronics and Communication Engineering. Today, I channel that curiosity into building high-impact software solutions.
+                    </p>
+                    <p>
+                        My experience ranges from architecting enterprise-level project management platforms to developing AI-driven tools that streamline business processes. I thrive on challenges and enjoy working across the full stack, from designing intuitive user interfaces with Figma to engineering scalable backend systems with Python and Flask.
+                    </p>
+                     <p>Here are a few technologies I've been working with recently:</p>
+                    <ul class="grid grid-cols-2 gap-2 mt-4">
+                        <li class="flex items-center"><span class="text-highlight-text mr-2">▹</span>Python (Flask)</li>
+                        <li class="flex items-center"><span class="text-highlight-text mr-2">▹</span>React</li>
+                        <li class="flex items-center"><span class="text-highlight-text mr-2">▹</span>Generative AI</li>
+                        <li class="flex items-center"><span class="text-highlight-text mr-2">▹</span>SQL</li>
+                        <li class="flex items-center"><span class="text-highlight-text mr-2">▹</span>Figma</li>
+                        <li class="flex items-center"><span class="text-highlight-text mr-2">▹</span>Power BI</li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2 relative group">
+                    <div class="w-full h-full rounded absolute top-2 left-2 border-2 border-highlight-text transition-transform duration-300 group-hover:top-0 group-hover:left-0"></div>
+                    <img class="w-full h-auto rounded-lg relative shadow-lg" src="https://media.licdn.com/dms/image/v2/D4D03AQEDyq0BebqrFg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1664877098090?e=1759363200&v=beta&t=7rj5FstMzRzpy13NiVLl9E_32GSgEUKeuBR47epOxkE" alt="Prabhat Singh Profile">
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24">
+            <h2 class="section-heading text-3xl font-bold flex items-center mb-12"><span class="highlight-text mr-4">02.</span>Where I've Worked</h2>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/4 mb-8 md:mb-0">
+                    <ul id="job-tabs">
+                        <li data-tab="1" class="job-tab-item active-tab cursor-pointer py-3 px-4 border-l-2 border-highlight-text text-highlight-text bg-blue-900 bg-opacity-30">Zuari Management Services</li>
+                        <li data-tab="2" class="job-tab-item cursor-pointer py-3 px-4 border-l-2 border-slate-700 hover:bg-blue-900 hover:bg-opacity-30 hover:text-highlight-text">Zuari Industries Limited</li>
+                    </ul>
+                </div>
+                <div class="md:w-3/4 md:pl-8">
+                    <div id="job-content">
+                        <div data-panel="1" class="job-panel">
+                            <h3 class="text-xl font-semibold text-gray-100">Software Developer <span class="highlight-text">@ Zuari Management Services</span></h3>
+                            <p class="text-sm mb-4">Jul 2025 - Present</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="text-highlight-text mr-3 mt-1">▹</span>Architected and engineered PROTON SI, a full-stack EPCM platform with an AI Risk Assessment engine and an integrated multi-lingual AI chatbot.</li>
+                                <li class="flex items-start"><span class="text-highlight-text mr-3 mt-1">▹</span>Developed a secure Enterprise Resource Planning (ERP) system using Python Flask, featuring real-time analytics, automated workflows, and robust security measures.</li>
+                                <li class="flex items-start"><span class="text-highlight-text mr-3 mt-1">▹</span>Built a full-stack AI-powered CV Analyzer to streamline HR recruitment, leveraging Generative AI and FAISS for intelligent candidate ranking.</li>
+                            </ul>
+                        </div>
+                        <div data-panel="2" class="job-panel hidden">
+                            <h3 class="text-xl font-semibold text-gray-100">Graduate Engineer Trainee <span class="highlight-text">@ Zuari Industries</span></h3>
+                            <p class="text-sm mb-4">Jul 2024 - Jun 2025</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="text-highlight-text mr-3 mt-1">▹</span>Led end-to-end website revamp projects for multiple company subsidiaries, managing the entire project lifecycle from concept to execution.</li>
+                                <li class="flex items-start"><span class="text-highlight-text mr-3 mt-1">▹</span>Designed user-centric interfaces in Figma to enhance customer experience and ensure brand consistency across digital platforms.</li>
+                                <li class="flex items-start"><span class="text-highlight-text mr-3 mt-1">▹</span>Managed internal Shopify development and collaborated with external vendors to ensure high-quality project delivery.</li>
+                                <li class="flex items-start"><span class="text-highlight-text mr-3 mt-1">▹</span>Implemented a direct AWS-to-Power BI API connection to enable seamless analysis of large-scale datasets, bypassing Excel's limitations.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24">
+            <h2 class="section-heading text-3xl font-bold flex items-center mb-12"><span class="highlight-text mr-4">03.</span>Things I've Built</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="project-card glassmorphism rounded-lg p-6 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-highlight-text"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                           <span class="text-xs text-highlight-text">Enterprise</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-100">PROTON SI Platform</h3>
+                        <p class="text-gray-400">A full-stack platform for EPCM project management featuring a granular AI Risk Assessment engine and an integrated, multi-lingual AI chatbot for on-demand project insights.</p>
+                    </div>
+                    <div class="mt-4 text-xs font-mono text-gray-400">Python Flask, Generative AI, REST APIs</div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card glassmorphism rounded-lg p-6 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                     <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-highlight-text"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>
+                            <span class="text-xs text-highlight-text">Business Automation</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-100">Enterprise Resource Planning (ERP)</h3>
+                        <p class="text-gray-400">A comprehensive ERP system with secure authentication, real-time dashboard analytics, automated email workflows, and streamlined purchase order management.</p>
+                    </div>
+                    <div class="mt-4 text-xs font-mono text-gray-400">Python Flask, Chart.js, Pandas, Outlook API</div>
+                </div>
+                 <!-- Project 3 -->
+                 <div class="project-card glassmorphism rounded-lg p-6 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                     <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-highlight-text"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            <span class="text-xs text-highlight-text">HR Tech</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-100">AI-Powered CV Analyzer</h3>
+                        <p class="text-gray-400">A full-stack tool to streamline HR recruitment by automatically parsing resumes, and intelligently ranking candidates against job descriptions using AI and vector similarity search.</p>
+                    </div>
+                    <div class="mt-4 text-xs font-mono text-gray-400">Generative AI, FAISS, Python, React</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 text-center">
+            <h2 class="text-2xl font-semibold mb-2 highlight-text">04. What's Next?</h2>
+            <h3 class="text-5xl font-bold mb-4 text-gray-100">Get In Touch</h3>
+            <p class="max-w-xl mx-auto mb-8 text-gray-300">
+                My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+            </p>
+            
+            <a href="mailto:prabhatsingh8766@gmail.com?subject=Inquiry%20from%20Portfolio&body=Hi%20Prabhat,%0D%0A%0D%0AI%20saw%20your%20portfolio%20and%20wanted%20to%20reach%20out." class="inline-block mt-12 bg-transparent border border-highlight-text text-highlight-text font-medium py-4 px-10 rounded hover:bg-highlight-text hover:bg-opacity-10 transition-all duration-300">
+                Say Hello
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6">
+        <div class="container mx-auto px-6 text-center text-gray-500 text-sm">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://www.linkedin.com/in/prabhat3/" target="_blank" class="hover:text-highlight-text transition-colors">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="tel:+918766331285" class="hover:text-highlight-text transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </a>
+            </div>
+            <p>Designed & Built by Prabhat Singh</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot Launcher -->
+    <button id="chatbot-launcher" class="fixed bottom-8 right-8 text-highlight-text w-16 h-16 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 z-50 focus:outline-none flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9.45 13.6L8 12.14 6.55 13.6 8 15.06 9.45 13.6zm4.1 0L12.1 12l-1.45-1.6 1.45-1.6 1.45 1.6L12.1 12l1.45 1.6zm4.1 0L16.2 12l-1.45-1.6 1.45-1.6 1.45 1.6L16.2 12l1.45 1.6z"/>
+        </svg>
+    </button>
+
+    <!-- Gemini Modal -->
+    <div id="gemini-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 hidden z-[9999]">
+        <div id="modal-content" class="bg-[#0a192f] border border-slate-700 rounded-lg max-w-2xl w-full relative glassmorphism">
+            <!-- Close Button -->
+            <button id="modal-close-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            
+            <!-- Gemini API Feature: Cover Letter Assistant -->
+            <div id="gemini-feature" class="p-8">
+                <h4 class="text-xl font-bold text-gray-100 mb-4 flex items-center">
+                    <span class="highlight-text mr-2">✨</span> Cover Letter Assistant
+                </h4>
+                <p class="text-gray-400 mb-4">
+                    Hiring for a role? Enter the job title below and let AI generate a tailored cover letter snippet highlighting my relevant skills.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input type="text" id="job-title-input" placeholder="e.g., Senior Python Developer" class="flex-grow bg-slate-800 border border-slate-700 rounded px-4 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-highlight-text">
+                    <button id="generate-btn" class="bg-highlight-text text-slate-900 font-bold py-2 px-6 rounded hover:bg-opacity-80 transition-all duration-300 flex items-center justify-center">
+                        Generate
+                    </button>
+                </div>
+                <div id="gemini-result-container" class="mt-4 hidden">
+                     <div class="flex justify-between items-center mb-2">
+                        <h5 class="font-semibold text-gray-200">Generated Snippet:</h5>
+                        <button id="copy-btn" class="text-sm text-gray-400 hover:text-highlight-text flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard mr-1" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>
+                            <span id="copy-btn-text">Copy</span>
+                        </button>
+                    </div>
+                    <div id="gemini-result-text" class="bg-slate-800 border border-slate-700 rounded p-4 text-gray-300 min-h-[120px] whitespace-pre-wrap"></div>
+                </div>
+                <div id="loader" class="hidden mt-4 flex justify-center items-center">
+                    <div class="loader"></div>
+                    <p class="ml-4 text-gray-400">Generating...</p>
+                </div>
+                 <div id="error-message" class="hidden mt-4 text-red-400 bg-red-900 bg-opacity-30 border border-red-400 rounded p-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Navbar Scroll Effect ---
+        const navbar = document.getElementById('navbar');
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                // Downscroll
+                navbar.style.top = '-100px';
+            } else {
+                // Upscroll
+                navbar.style.top = '0';
+            }
+            if (scrollTop > 100) {
+                 navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+        
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Experience Tabs (A more direct and robust approach) ---
+        const tabs = document.querySelectorAll('.job-tab-item');
+        const panels = document.querySelectorAll('.job-panel');
+
+        tabs.forEach(clickedTab => {
+            clickedTab.addEventListener('click', () => {
+                tabs.forEach(tab => {
+                    tab.classList.remove('active-tab', 'text-highlight-text', 'bg-blue-900', 'bg-opacity-30', 'border-highlight-text');
+                    tab.classList.add('border-slate-700');
+                });
+                panels.forEach(panel => {
+                    panel.classList.add('hidden');
+                });
+                clickedTab.classList.add('active-tab', 'text-highlight-text', 'bg-blue-900', 'bg-opacity-30', 'border-highlight-text');
+                clickedTab.classList.remove('border-slate-700');
+                const targetPanelId = clickedTab.dataset.tab;
+                const targetPanel = document.querySelector(`.job-panel[data-panel="${targetPanelId}"]`);
+                if (targetPanel) {
+                    targetPanel.classList.remove('hidden');
+                }
+            });
+        });
+
+
+        // --- ScrollReveal Animations ---
+        const sr = ScrollReveal({
+            origin: 'bottom',
+            distance: '30px',
+            duration: 800,
+            delay: 200,
+            reset: false,
+        });
+
+        sr.reveal('.hero-section h1, .hero-section h2, .hero-section p, .hero-section img', { interval: 200, delay: 300, origin: 'top' });
+        sr.reveal('#about .section-heading, #about .grid', { delay: 200 });
+        sr.reveal('#experience .section-heading, #job-tabs, .job-panel[data-panel="1"]', { delay: 200 });
+        sr.reveal('.project-card', { interval: 200 });
+        sr.reveal('#contact h2, #contact h3, #contact p, #contact a', { interval: 150 });
+        
+
+
+        // --- Gemini API Feature Logic ---
+        const generateBtn = document.getElementById('generate-btn');
+        const jobTitleInput = document.getElementById('job-title-input');
+        const resultContainer = document.getElementById('gemini-result-container');
+        const resultText = document.getElementById('gemini-result-text');
+        const loader = document.getElementById('loader');
+        const copyBtn = document.getElementById('copy-btn');
+        const copyBtnText = document.getElementById('copy-btn-text');
+        const errorMessage = document.getElementById('error-message');
+        
+        const apiKey = "AIzaSyBSp7j4IkABDzmexi74111k4RJN61UWRzI"; 
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+        
+        const prabhatsProfile = `
+            **Summary:** A passionate software developer specializing in creating robust, full-stack applications and intelligent systems. Experienced in architecting enterprise-level project management platforms and developing AI-driven tools to streamline business processes.
+            
+            **Key Skills:** Python (Flask), React, Generative AI, SQL, Figma, Power BI, FAISS, REST APIs, Chart.js, Pandas.
+            
+            **Experience:**
+            - **Software Developer @ Zuari Management Services:** Architected and engineered PROTON SI, a full-stack EPCM platform with an AI Risk Assessment engine and multi-lingual AI chatbot. Developed a secure ERP system using Python Flask. Built an AI-powered CV Analyzer using Generative AI and FAISS.
+            - **Graduate Engineer Trainee @ Zuari Industries:** Led website revamp projects, designed user-centric interfaces in Figma, and managed Shopify development.
+        `;
+
+        const callGeminiAPI = async (prompt, retries = 3, delay = 1000) => {
+            try {
+                const payload = {
+                    contents: [{ parts: [{ text: prompt }] }],
+                    systemInstruction: {
+                        parts: [{ text: "You are a world-class career coach. Your tone should be professional, confident, and persuasive." }]
+                    },
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                   throw new Error(`API Error: ${response.status} ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    return candidate.content.parts[0].text;
+                } else {
+                    throw new Error("Invalid response structure from API.");
+                }
+            } catch (error) {
+                if (retries > 0) {
+                    await new Promise(res => setTimeout(res, delay));
+                    return callGeminiAPI(prompt, retries - 1, delay * 2); // Exponential backoff
+                } else {
+                    console.error("Error calling Gemini API:", error);
+                    throw error;
+                }
+            }
+        };
+
+        generateBtn.addEventListener('click', async () => {
+            const jobTitle = jobTitleInput.value.trim();
+            if (!jobTitle) {
+                errorMessage.textContent = "Please enter a job title.";
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            loader.classList.remove('hidden');
+            resultContainer.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+            generateBtn.disabled = true;
+            generateBtn.textContent = 'Generating...';
+
+            const prompt = `Based on Prabhat Singh's professional profile below, write a concise and compelling paragraph (3-4 sentences) for a cover letter. This paragraph should explain why he is an excellent candidate for the role of "${jobTitle}". Connect his skills and experience directly to the potential needs of this role.\n\n**Prabhat's Profile:**\n${prabhatsProfile}`;
+
+            try {
+                const generatedText = await callGeminiAPI(prompt);
+                resultText.textContent = generatedText;
+                resultContainer.classList.remove('hidden');
+                copyBtnText.textContent = 'Copy';
+            } catch (error) {
+                 errorMessage.textContent = 'Sorry, something went wrong while generating the text. Please try again.';
+                 errorMessage.classList.remove('hidden');
+            } finally {
+                loader.classList.add('hidden');
+                generateBtn.disabled = false;
+                generateBtn.textContent = 'Generate';
+            }
+        });
+        
+        copyBtn.addEventListener('click', () => {
+            const textToCopy = resultText.textContent;
+            
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = textToCopy;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+            
+            copyBtnText.textContent = 'Copied!';
+        });
+
+        // --- Chatbot Modal Logic ---
+        const chatbotLauncher = document.getElementById('chatbot-launcher');
+        const geminiModal = document.getElementById('gemini-modal');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+
+        if (chatbotLauncher && geminiModal && modalCloseBtn) {
+            chatbotLauncher.addEventListener('click', () => geminiModal.classList.remove('hidden'));
+            modalCloseBtn.addEventListener('click', () => geminiModal.classList.add('hidden'));
+            geminiModal.addEventListener('click', (e) => { 
+                if (e.target === geminiModal) geminiModal.classList.add('hidden'); 
+            });
+        }
+
+    </script>
+
+</body>
+</html>
